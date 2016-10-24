@@ -10,6 +10,7 @@ var menuLinks = [
     new Link("ListView: Multi Line Items - Bigger Thumbs", "/multiLineBigListViewExampleComponent"),
     new Link("ListView: Grouped Two Lines Items", "/groupedTwoLinesListViewExampleComponent"),
     new Link("ListView: Cards", "/cardsListViewExampleComponent"),
+    new Link("ListView: Horizontal Scrolling", "/horizontalScrollingExampleComponent"),
 ];
 
 @Component({
