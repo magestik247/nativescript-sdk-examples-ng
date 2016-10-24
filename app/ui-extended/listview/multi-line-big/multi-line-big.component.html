@@ -2,12 +2,14 @@
 
     <GridLayout *tabItem="{title: 'Bigger thumbs on the left'}">
         <!-- >> multi-line-big-left-html -->
-        <ListView class="list-group" [items]="countries" (itemTap)="onItemTapSecondList($event)" separatorColor="red">
+        <ListView class="list-group" [items]="countries" (itemTap)="onItemTapSecondList($event)" (setupItemView)="onSetupItemView($event)">
             <template let-country="item" let-third="third">
-                <GridLayout class="list-group-item" rows="*, *" columns="auto, *">
-                    <Image row="0" rowSpan="2" col="0" [src]="country.imageSrc"  width="80" heigth="80" stretch="aspectFit"></Image>
-                    <Label row="0" col="1" [text]="country.name" class="h2 p-15"></Label>
-                    <Label row="1" col="1" [text]="country.desc" class="h3 p-15" textWrap="true"></Label>    
+                <GridLayout class="list-group-item" rows="*" columns="auto, *">
+                    <StackLayout col="1">
+                        <Label class="list-group-item-heading" [text]="country.name"></Label>
+                        <Label class="list-group-item-text" [text]="country.desc" textWrap="true"></Label>   
+                    </StackLayout>
+                    <Image col="0" [src]="country.imageSrc" class="thumb img-rounded" width="92" height="92" verticalAlignment="top"></Image>
                 </GridLayout>
             </template>
         </ListView>
@@ -18,10 +20,12 @@
         <!-- >> multi-line-big-right-html -->
         <ListView class="list-group" [items]="countries" (itemTap)="onItemTapThirdList($event)" (setupItemView)="onSetupItemView($event)">
             <template let-country="item" let-third="third">
-                <GridLayout class="list-group-item" rows="*, *" columns="*, auto">
-                    <Label row="0" col="0" [text]="country.name" class="h2 p-15"></Label>
-                    <Label row="1" col="0" [text]="country.desc" class="h3 p-15" textWrap="true"></Label>    
-                    <Image row="0" rowSpan="2" col="1" [src]="country.imageSrc" width="80" heigth="80" stretch="aspectFit"></Image>
+                <GridLayout class="list-group-item" rows="*" columns="*, auto">
+                    <StackLayout col="0">
+                        <Label class="list-group-item-heading" [text]="country.name"></Label>
+                        <Label class="list-group-item-text" [text]="country.desc" textWrap="true"></Label>   
+                    </StackLayout>
+                    <Image col="1" [src]="country.imageSrc" class="thumb img-rounded" width="92" height="92" verticalAlignment="top"></Image>
                 </GridLayout>
             </template>
         </ListView>
